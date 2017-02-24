@@ -1,0 +1,22 @@
+<StackLayout> 
+        <GridLayout rows="*" columns="*">
+            
+            <GridLayout row="0" col="0" rows="*, auto, auto">
+                <ListView [items]="items"  class="list-group">
+                    <template let-item="item" let-odd="odd" let-even="even">
+                      <GridLayout height="94" columns="94, 94, *" rows="*, *" >
+                            <Image rowSpan="2" width="94" height="94" [src]="item.image"></Image>
+                            <Label col="1" [text]="item.uri"></Label>
+                            <Progress marginLeft="2" marginRight="2" [maxValue]="item.task.totalUpload" [value]="item.task.upload" class="progress" row="1" col="1" ></Progress>
+                            <Label col="1" row="2" [text]="item.fileUri"></Label>
+                        </GridLayout>
+                    </template>
+                </ListView>
+                <Button row="1" text="Pick Single" (tap)="onSelectSingleTap()" horizontalAlignment="center"></Button>
+                <Button row="2" text="Pick Multiple" (tap)="onSelectMultipleTap()" horizontalAlignment="center"></Button>
+            </GridLayout>
+        </GridLayout>
+        
+        
+        
+</StackLayout>
